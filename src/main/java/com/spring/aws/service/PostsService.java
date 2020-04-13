@@ -14,6 +14,7 @@ import javax.transaction.Transactional;
 @RequiredArgsConstructor
 @Service
 public class PostsService {
+
     private final PostsRepository postsRepository;
 
     @Transactional
