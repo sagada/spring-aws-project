@@ -1,11 +1,3 @@
 .idea
 .gradle
 .build
-build/generated/
-build/tmp/
-src/test/resources/
-
-build/classes/
-build/reports/
-build/resources/
-build/test-results/
