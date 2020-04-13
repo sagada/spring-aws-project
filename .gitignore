@@ -3,3 +3,4 @@
 .build
 build/generated/
 build/tmp/
+src/test/resources/
