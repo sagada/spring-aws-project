@@ -5,6 +5,7 @@ import com.spring.aws.web.dto.PostsResponseDto;
 import com.spring.aws.web.dto.PostsSaveRequestDto;
 import com.spring.aws.web.dto.PostsUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @RequiredArgsConstructor
@@ -30,4 +31,6 @@ public class PostsApiController {
     {
         return postsService.findById(id);
     }
+
+
 }
