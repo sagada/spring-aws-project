@@ -1,8 +1,13 @@
-var index = {
+var main = {
     init : function () {
         var _this = this;
+
         $('#btn-save').on('click' , function () {
             _this.save();
+        });
+
+        $('#btn-update').on('click', function () {
+           _this.update();
         });
     },
     save : function () {
@@ -19,12 +24,38 @@ var index = {
             contentType : 'application/json; charset=utf-8',
             data : JSON.stringify(data)
         }).done(function() {
+
             alert('글이 등록 되었습니다.');
             window.location.href = '/';
         }).fail(function (error) {
             alert(JSON.stringify(error));
         });
+    },
+
+    update : function () {
+        var data = {
+            title : $('#title').val(),
+            content : $('#content').val()
+        };
+
+        var id = $('#id').val();
+
+        console.log('개시발');
+
+        $.ajax({
+            type : 'PUT',
+            url : '/api/v1/posts/' + id,
+            dataType : 'json',
+            contentType : 'application/json; charset=utf-8',
+            data : JSON.stringify(data)
+        }).done(function() {
+            alert('글이 수정 되었습니다.');
+            window.location.href = '/';
+        }).fail(function(error) {
+            alert('에러났어 시발년아')
+            alert(JSON.stringify(error));
+        });
     }
 };
 
-index.init();
+main.init();
