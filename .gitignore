@@ -2,6 +2,8 @@
 .gradle
 .build
 application-oauth.properties
+application.properties
+
 build/generated/
 build/tmp/
 src/test/resources/
