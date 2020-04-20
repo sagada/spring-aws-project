@@ -1,6 +1,8 @@
 package com.spring.aws.config.auth;
 
 
+import com.spring.aws.config.auth.dto.OAuthAttributes;
+import com.spring.aws.config.auth.dto.SessionUser;
 import com.spring.aws.domain.user.User;
 import com.spring.aws.domain.user.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -40,8 +42,8 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
 
         return new DefaultOAuth2User(
                 Collections.singleton(new SimpleGrantedAuthority(user.getRoleKey())), attributes.getAttributes(),
-                attributes.getNameAttributeskey());
-
+                attributes.getNameAttributeKey());
+        
     }
 
     private User saveOrUpdate(OAuthAttributes attributes)

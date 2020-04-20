@@ -44,7 +44,6 @@ var main = {
 
         var id = $('#id').val();
 
-        console.log('개시발');
 
         $.ajax({
             type : 'PUT',

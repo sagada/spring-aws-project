@@ -1,5 +1,6 @@
 package com.spring.aws.web;
 
+import com.spring.aws.domain.user.User;
 import com.spring.aws.service.PostsService;
 import com.spring.aws.web.dto.PostsResponseDto;
 import lombok.RequiredArgsConstructor;
@@ -8,16 +9,24 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import javax.servlet.http.HttpSession;
+
 @RequiredArgsConstructor
 @Controller
 public class indexController {
 
     private final PostsService postsService;
-
+    private final HttpSession httpSession;
     @GetMapping("/")
     public String index(Model model)
     {
         model.addAttribute("posts", postsService.findAllDesc());
+        User user = (User)httpSession.getAttribute("user");
+        if(user != null)
+        {
+            model.addAttribute("userName", user.getName());
+        }
+
         return "index";
     }
 
@@ -34,4 +43,5 @@ public class indexController {
         model.addAttribute("post", dto);
         return "posts-update";
     }
+
 }
